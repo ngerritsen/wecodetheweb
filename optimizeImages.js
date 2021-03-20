@@ -9,7 +9,7 @@ const recursiveFs = require('recursive-fs')
 const PUBLIC_FOLDER = './public'
 const IMAGE_EXTENSIONS = ['.jpg', '.png']
 
-recursiveFs.readdirr('./public', (_, __, files) => {
+recursiveFs.readdirr(PUBLIC_FOLDER, (_, __, files) => {
   files
     .filter(file => IMAGE_EXTENSIONS.includes(path.extname(file)))
     .forEach(filepath => {
