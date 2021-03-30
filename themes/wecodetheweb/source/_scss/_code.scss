@@ -1,17 +1,21 @@
 code {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: "Source Code Pro", Monaco, "Courier New", monospace;
+  border-radius: 3px;
 }
 
-pre[class*="language-"] {
-  font-size: 0.9em;
-  border-radius: 2px;
+pre {
   margin-bottom: 2em !important;
 }
 
-code:not([class*='language']) {
+.hljs {
+  border-radius: 4px;
+  padding: 1.2rem 1.6rem !important;
   font-size: 0.9em;
-  border-radius: 2px;
+}
+
+code:not(.hljs) {
   background-color: lighten($color-carrot, 42%);
   color: darken($color-carrot, 5%);
   padding: 0.2rem 0.4rem;
+  font-size: 0.9em;
 }

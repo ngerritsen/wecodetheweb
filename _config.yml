@@ -1,7 +1,3 @@
-# Hexo Configuration
-## Docs: http://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-
 # Site
 title: We code the web
 subtitle: Brainfood for front-end developers
@@ -10,14 +6,11 @@ author: Niels Gerritsen
 language: English
 locale: en_EN
 type: blog
-timezone:
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://wecodetheweb.com
 root: /
 permalink: :year/:month/:day/:title/
-permalink_defaults:
 
 # Directory
 source_dir: source
@@ -27,7 +20,6 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -39,15 +31,12 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-prism_plugin:
-  mode: 'preprocess'
-  theme: 'tomorrow'
-  line_number: false
 highlight:
-  enable: false
-  line_number: true
+  enable: true
   auto_detect: true
-  tab_replace:
+  line_number: false
+  wrap: false
+  hljs: true
 
 # Category & Tag
 default_category: uncategorized
@@ -55,23 +44,13 @@ category_map:
 tag_map:
 
 # Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
 # Pagination
-## Set per_page to 0 to disable pagination
 per_page: 8
 pagination_dir: page
 
 # Extensions
-## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
 theme: wecodetheweb
 
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type:
