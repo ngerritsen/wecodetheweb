@@ -20,7 +20,7 @@ recursiveFs.readdirr(PUBLIC_FOLDER, (_, __, files) => {
         ]
       })
         .then(files => {
-          files.forEach(file => console.log(`Optimized image "${file.path}"`))
+          files.forEach(file => console.log(`Optimized image "${file.sourcePath}"`))
         })
     })
 })
