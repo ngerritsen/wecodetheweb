@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getDateParts } from '../utils/dateFormat';
+import MetaData from './MetaData.astro';
+import TagList from './TagList.astro';
+
+export interface Props {
+  post: CollectionEntry<'posts'>;
+  headline?: boolean;
+  subheadline?: boolean;
+}
+
+const { post, headline = false, subheadline = false } = Astro.props;
+
+// Build post URL
+const { year, month, day } = getDateParts(post.data.date);
+const postUrl = `/${year}/${month}/${day}/${post.slug}/`;
+const imgUrl = `/posts/${post.slug}/main.jpg`;
+
+// Extract excerpt
+const excerptContent = post.body.split('<!-- more -->')[0] || post.body.substring(0, 200);
+---
+
+<article class={`post-list__item${headline ? ' alt-headline' : ''}${subheadline ? ' alt-sub-headline' : ''}`}>
+  <a href={postUrl} title={`Read: ${post.data.title}`} class="post-list__item-image-link">
+    <div class="post-list__item-image" style={`background-image: url('${imgUrl}')`}></div>
+  </a>
+
+  <div class="post-list__item-content">
+    <MetaData date={post.data.date} />
+
+    <h2 class="post-list__item-title">
+      <a href={postUrl}>{post.data.title}</a>
+    </h2>
+
+    <div class="post-list__item-excerpt" set:html={excerptContent} />
+
+    <TagList tags={post.data.tags} />
+  </div>
+</article>

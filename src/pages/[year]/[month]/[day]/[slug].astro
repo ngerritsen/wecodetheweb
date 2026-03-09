@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Article from '../../../../components/Article.astro';
+import { getDateParts } from '../../../../utils/dateFormat';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+
+  return posts.map(post => {
+    const { year, month, day } = getDateParts(post.data.date);
+    return {
+      params: {
+        year,
+        month,
+        day,
+        slug: post.slug,
+      },
+      props: { post },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+
+// Get all posts for related posts feature
+const allPosts = await getCollection('posts');
+
+// Extract excerpt (text before <!-- more -->)
+const excerptText = post.body.split('<!-- more -->')[0] || post.body.substring(0, 200);
+const plainExcerpt = excerptText.replace(/[#*`\[\]]/g, '').trim();
+
+// Construct OG image URL
+const { year, month, day } = getDateParts(post.data.date);
+const ogImageUrl = `${Astro.site}${year}/${month}/${day}/${post.slug}/main.jpg`;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={plainExcerpt}
+  ogImage={ogImageUrl}
+  isPost={true}
+>
+  <Article post={post} allPosts={allPosts} />
+</BaseLayout>

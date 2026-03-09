@@ -1,0 +1,27 @@
+---
+import { formatDate } from '../utils/dateFormat';
+
+export interface Props {
+  date: Date;
+  author?: string;
+}
+
+const { date, author = 'Niels Gerritsen' } = Astro.props;
+
+const formattedDate = formatDate(date);
+const shortDate = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+}).format(date);
+---
+
+<p class="meta-data">
+  <img class="meta-data__avatar" height="50" width="50" alt="User avatar" src="/img/ava.jpg" />
+  {author}
+
+  &nbsp;&middot;&nbsp;
+
+  <span class="meta-data__date-small">{shortDate}</span>
+  <span class="meta-data__date-large">{formattedDate}</span>
+</p>

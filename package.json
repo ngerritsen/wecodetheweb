@@ -1,40 +1,25 @@
 {
   "name": "wecodetheweb",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "hexo": {
-    "version": "5.4.0"
-  },
+  "type": "module",
   "scripts": {
-    "build": "npm run sass; npm run generate; npm run images",
-    "generate": "hexo clean; hexo generate",
-    "watch": "concurrently -n 'hexo,sass' 'hexo clean; hexo server --draft' 'npm run sass:watch'",
-    "serve": "hexo clean; hexo server",
-    "images": "node ./optimizeImages.js",
-    "sass": "node-sass ./themes/wecodetheweb/source/_scss/ --output-style compressed -o ./themes/wecodetheweb/source/css/",
-    "sass:dev": "node-sass ./themes/wecodetheweb/source/_scss/ -o ./themes/wecodetheweb/source/css/",
-    "sass:watch": "npm run sass:dev; node-sass -w ./themes/wecodetheweb/source/_scss/ -o ./themes/wecodetheweb/source/css/"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "global": "^4.4.0",
-    "hexo-generator-archive": "^1.0.0",
-    "hexo-renderer-marked": "^4.0.0",
-    "hexo-renderer-stylus": "^2.0.1",
-    "hexo-server": "^2.0.0"
+    "astro": "^4.3.0",
+    "@astrojs/mdx": "^2.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/rss": "^4.0.0"
   },
   "devDependencies": {
-    "concurrently": "^6.0.1",
-    "hexo": "^5.4.0",
-    "hexo-cli": "^4.2.0",
-    "hexo-generator-category": "^1.0.0",
-    "hexo-generator-index": "^2.0.0",
-    "hexo-generator-tag": "^1.0.0",
-    "hexo-renderer-ejs": "^1.0.0",
-    "imagemin": "^7.0.1",
-    "imagemin-cli": "^6.0.0",
-    "imagemin-mozjpeg": "^9.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "node-sass": "^5.0.0",
-    "recursive-fs": "^2.1.0"
+    "sass": "^1.70.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.14.1"
   }
 }

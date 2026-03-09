@@ -1,0 +1,40 @@
+---
+export interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+
+const twitterUrl = `https://twitter.com/intent/tweet?status=${encodeURIComponent(title)}+${encodeURIComponent(url)}`;
+const linkedInUrl = `http://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&source=wecodetheweb.com`;
+---
+
+<section class="post__share">
+  <script is:inline>
+    function popupwindow(url, title, w, h) {
+      var left = (screen.width/2)-(w/2);
+      var top = (screen.height/2)-(h/2);
+      return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+    }
+  </script>
+
+  <a
+    class="post__share-icon"
+    href={twitterUrl}
+    target="_blank"
+    onclick={`event.preventDefault(); popupwindow('${twitterUrl}', 'Tweet', 720, 500)`}
+    title="Tweet this post on Twitter"
+  >
+    <i class="fa fa-twitter"></i>
+  </a>
+  <a
+    class="post__share-icon"
+    href={linkedInUrl}
+    target="_blank"
+    onclick={`event.preventDefault(); popupwindow('${linkedInUrl}', 'Share', 720, 500)`}
+    title="Share this post on LinkedIn"
+  >
+    <i class="fa fa-linkedin-square"></i>
+  </a>
+</section>

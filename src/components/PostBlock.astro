@@ -1,0 +1,20 @@
+---
+export interface Props {
+  title: string;
+  excerpt: string;
+  slug: string;
+  imagePath: string;
+  url: string;
+}
+
+const { title, excerpt, slug, imagePath, url } = Astro.props;
+---
+
+<div class="post-block" style={`background-image: url('${imagePath}')`}>
+  <a href={url} title={`Read: ${title}`}>
+    <div class="post-block__content">
+      <h2 class="post-block__title">{title}</h2>
+      <div class="post-block__excerpt" set:html={excerpt} />
+    </div>
+  </a>
+</div>

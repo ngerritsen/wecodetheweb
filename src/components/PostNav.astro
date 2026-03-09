@@ -1,0 +1,25 @@
+---
+export interface Props {
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const { prevUrl, nextUrl } = Astro.props;
+---
+
+{(prevUrl || nextUrl) && (
+  <div class="container">
+    <nav class="post-nav">
+      {prevUrl && (
+        <a class="extend prev" rel="prev" href={prevUrl}>
+          <span>Newer</span>
+        </a>
+      )}
+      {nextUrl && (
+        <a class="extend next" rel="next" href={nextUrl}>
+          <span>Older</span>
+        </a>
+      )}
+    </nav>
+  </div>
+)}

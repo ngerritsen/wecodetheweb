@@ -1,0 +1,19 @@
+---
+export interface Props {
+  tags?: string[];
+}
+
+const { tags = [] } = Astro.props;
+---
+
+{tags.length > 0 && (
+  <ul class="tag-list">
+    {tags.map(tag => (
+      <li class="tag-list-item">
+        <a class="tag-list-link" href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`}>
+          {tag}
+        </a>
+      </li>
+    ))}
+  </ul>
+)}

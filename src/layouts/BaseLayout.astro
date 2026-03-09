@@ -1,0 +1,67 @@
+---
+import { SITE } from '../config';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/main.scss';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  isPost?: boolean;
+}
+
+const { title, description, ogImage, isPost = false } = Astro.props;
+
+const pageTitle = title ? `${title}` : `${SITE.title} | ${SITE.subtitle}`;
+const pageDescription = description || SITE.description;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1.0, user-scalable=no" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <!-- Open Graph -->
+    <meta prefix="og: http://ogp.me/ns#" name="og:site_name" content={SITE.title} />
+    <meta prefix="og: http://ogp.me/ns#" name="og:type" content="blog" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:locale" content={SITE.locale} />
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content={canonicalURL} />
+    <meta prefix="og: http://ogp.me/ns#" name="og:description" content={pageDescription} />
+    <meta prefix="og: http://ogp.me/ns#" name="og:title" content={title || SITE.title} />
+    {ogImage && <meta prefix="og: http://ogp.me/ns#" name="og:image" content={ogImage} />}
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@500&family=Ubuntu:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+    <!-- Font Preload -->
+    <link rel="preload" href="/fonts/bariol.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/fonts/bariol-bold.woff" as="font" type="font/woff" crossorigin />
+
+    <!-- Disqus -->
+    <script id="dsq-count-scr" src="//wecodetheweb.disqus.com/count.js" async></script>
+
+    <script is:inline>
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+    </script>
+  </head>
+  <body>
+    <Header isPost={isPost} />
+    <slot />
+    <Footer />
+
+    <!-- Clicky Analytics -->
+    <script async src="//static.getclicky.com/101354173.js"></script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101354173ns.gif" /></p></noscript>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getRelatedPosts } from '../utils/relatedPosts';
+import { getDateParts } from '../utils/dateFormat';
+import TagList from './TagList.astro';
+import MetaData from './MetaData.astro';
+import PostShare from './PostShare.astro';
+import PostBlock from './PostBlock.astro';
+
+export interface Props {
+  post: CollectionEntry<'posts'>;
+  allPosts: CollectionEntry<'posts'>[];
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await post.render();
+
+const relatedPosts = getRelatedPosts(post, allPosts);
+const postUrl = Astro.site + post.slug;
+const imagePath = `/posts/${post.slug}/main.jpg`;
+
+// Get date parts for URL construction
+const { year, month, day } = getDateParts(post.data.date);
+const fullPostUrl = `${Astro.site}${year}/${month}/${day}/${post.slug}/`;
+---
+
+<main>
+  <article class="post">
+    <section class="post__heading" style={`background-image: url('${imagePath}')`}>
+      <div class="post__heading-overlay"></div>
+      <div class="container">
+        <div class="post__heading-content">
+          <h1 class="post__title">{post.data.title}</h1>
+          <TagList tags={post.data.tags} />
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section>
+        <MetaData date={post.data.date} />
+      </section>
+
+      <section class="post__content">
+        <Content />
+      </section>
+
+      <PostShare title={post.data.title} url={fullPostUrl} />
+
+      {relatedPosts.length > 0 && (
+        <section>
+          <h2>Related posts</h2>
+          <div class="post__related">
+            {relatedPosts.map(relatedPost => {
+              const relatedDateParts = getDateParts(relatedPost.data.date);
+              const relatedUrl = `/${relatedDateParts.year}/${relatedDateParts.month}/${relatedDateParts.day}/${relatedPost.slug}/`;
+              const relatedImagePath = `/posts/${relatedPost.slug}/main.jpg`;
+
+              // Get excerpt from content
+              const excerptContent = relatedPost.body.split('<!-- more -->')[0] || relatedPost.body.substring(0, 200);
+
+              return (
+                <PostBlock
+                  title={relatedPost.data.title}
+                  excerpt={excerptContent}
+                  slug={relatedPost.slug}
+                  imagePath={relatedImagePath}
+                  url={relatedUrl}
+                />
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      <section class="post__comments" id="disqus_thread">
+        <script is:inline define:vars={{ postId: post.data.id, postUrl: fullPostUrl }}>
+          var disqus_config = function () {
+            this.page.url = postUrl;
+            this.page.identifier = postId;
+          };
+
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//wecodetheweb.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>
+          Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+        </noscript>
+      </section>
+    </div>
+  </article>
+</main>

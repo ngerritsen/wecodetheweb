@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import PostNav from '../components/PostNav.astro';
+import { SITE } from '../config';
+
+const allPosts = await getCollection('posts');
+
+// Sort posts by date (newest first)
+const sortedPosts = allPosts.sort((a, b) =>
+  b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+// Get first page of posts
+const posts = sortedPosts.slice(0, SITE.postsPerPage);
+const hasMorePages = sortedPosts.length > SITE.postsPerPage;
+---
+
+<BaseLayout>
+  <PostList posts={posts} currentPage={1} />
+  <PostNav
+    nextUrl={hasMorePages ? '/page/2/' : undefined}
+  />
+</BaseLayout>

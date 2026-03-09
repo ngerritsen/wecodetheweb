@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostListItem from './PostListItem.astro';
+
+export interface Props {
+  posts: CollectionEntry<'posts'>[];
+  currentPage?: number;
+}
+
+const { posts, currentPage = 1 } = Astro.props;
+---
+
+<main class="post-list container">
+  {posts.map((post, index) => (
+    <PostListItem
+      post={post}
+      headline={index === 0 && currentPage === 1}
+      subheadline={(index === 1 || index === 2) && currentPage === 1}
+    />
+  ))}
+</main>

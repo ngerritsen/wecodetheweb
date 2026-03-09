@@ -1,0 +1,19 @@
+---
+import { SITE } from '../config';
+
+export interface Props {
+  isPost?: boolean;
+}
+
+const { isPost = false } = Astro.props;
+---
+
+<header class={`header${isPost ? ' alt-on-post' : ''}`}>
+  <div class="container">
+    <a title="Homepage" href="/">
+      <h1 class="header__title">
+        {SITE.title}
+      </h1>
+    </a>
+  </div>
+</header>

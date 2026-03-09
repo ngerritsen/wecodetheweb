@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm config:*)",
+      "Bash(node:*)",
+      "Bash(git:*)",
+      "Bash(npx astro@latest:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(sleep 10:*)",
+      "Bash(pnpm install:*)"
+    ]
+  }
+}
