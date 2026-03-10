@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Article from '../../../../components/Article.astro';
 import { getDateParts } from '../../../../utils/dateFormat';
@@ -35,9 +36,14 @@ const allPosts = await getCollection('posts');
 const excerptText = post.body.split('<!-- more -->')[0] || post.body.substring(0, 200);
 const plainExcerpt = excerptText.replace(/[#*`\[\]]/g, '').trim();
 
-// Construct OG image URL
-const { year, month, day } = getDateParts(post.data.date);
-const ogImageUrl = `${Astro.site}${year}/${month}/${day}/${post.slug}/main.jpg`;
+// Get optimized image URL for Open Graph
+const optimizedImage = await getImage({
+  src: post.data.image,
+  width: 1200,
+  height: 630,
+  format: 'jpg', // Social media prefers JPG
+});
+const ogImageUrl = new URL(optimizedImage.src, Astro.site).toString();
 ---
 
 <BaseLayout

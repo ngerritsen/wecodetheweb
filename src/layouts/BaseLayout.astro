@@ -38,7 +38,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta prefix="og: http://ogp.me/ns#" property="og:url" content={canonicalURL} />
     <meta prefix="og: http://ogp.me/ns#" name="og:description" content={pageDescription} />
     <meta prefix="og: http://ogp.me/ns#" name="og:title" content={title || SITE.title} />
-    {ogImage && <meta prefix="og: http://ogp.me/ns#" name="og:image" content={ogImage} />}
+    {ogImage && <meta prefix="og: http://ogp.me/ns#" property="og:image" content={ogImage} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title || SITE.title} />
+    <meta name="twitter:description" content={pageDescription} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@500&family=Ubuntu:wght@700&display=swap" />
