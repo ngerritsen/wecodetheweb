@@ -1,5 +1,5 @@
 ---
-title: React 0.14's coolest feature: function components
+title: "React 0.14's coolest feature: function components"
 date: 2015-10-03T09:13:19Z
 tags:
   - ES6
@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 283
+image: ../../assets/images/hero/react-function-components.jpg
 ---
 
 **[React 0.14](https://facebook.github.io/react/blog/2015/09/10/react-v0.14-rc1.html) introduced some cool additions, one of them is a more simple way to create components. This is one of those nifty little features that makes developers happy :-).**

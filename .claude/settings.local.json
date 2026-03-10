@@ -9,7 +9,19 @@
       "Bash(cp:*)",
       "Bash(ls:*)",
       "Bash(sleep 10:*)",
-      "Bash(pnpm install:*)"
+      "Bash(pnpm install:*)",
+      "Bash(npm run:*)",
+      "Bash(done)",
+      "Bash(grep:*)",
+      "Bash(find dist:*)",
+      "Bash(pkill:*)",
+      "Bash(curl:*)",
+      "Bash(npm i:*)",
+      "Bash(kill 41036:*)",
+      "Bash(npm ls:*)",
+      "Bash(du:*)",
+      "Bash(magick identify:*)",
+      "Bash(cd:*)"
     ]
   }
 }

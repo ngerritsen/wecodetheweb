@@ -1,11 +1,12 @@
 ---
-title: Quick tip: shortId
+title: "Quick tip: shortId"
 date: 2015-05-27T07:19:06Z
 tags:
   - Javascript
 categories:
   - Quickies
 id: 74
+image: ../../assets/images/hero/shortid.jpg
 ---
 
 Generating id's, no matter the concern, it always comes in handy. Check out this little fella!

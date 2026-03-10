@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 304
+image: ../../assets/images/hero/react-hooks-modals.jpg
 ---
 
 **Modals, there are a thousand ways of implementing them, but the biggest challenge is to keep them simple and flexible. Let's do that with React Hooks & Portals!**

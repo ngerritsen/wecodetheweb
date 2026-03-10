@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 302
+image: ../../assets/images/hero/optimizing-state.jpg
 ---
 
 **Client side applications hold a lot of state, some view related, some data related. But how do we make sure state is reliable and managable?**

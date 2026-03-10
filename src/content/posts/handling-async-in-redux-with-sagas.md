@@ -10,10 +10,11 @@ tags:
 categories:
   - Uncategorized
 id: 300
+image: ../../assets/images/hero/redux-sagas.jpg
 ---
-__Using Redux is a nice way to code structured, testable Javascript applications. But there's still one thing that can prove to be a challenge, asynchronous operations.__
+**Using Redux is a nice way to code structured, testable Javascript applications. But there's still one thing that can prove to be a challenge, asynchronous operations.**
 
-<!--more-->
+<!-- more -->
 
 __Note:__ This article was originally written _January 23, 2016_, because redux-saga changed a lot since, it is updated for the latest version as of _October 1, 2016_. Most notably `while (true) { take(ACTION) }` is replaced with `takeEvery` (old version still works though) and you now need to have one _'root saga'_.
 

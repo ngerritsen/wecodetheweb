@@ -1,11 +1,13 @@
+@use 'sass:color';
+
 $color-white: #fff;
 $color-black: #000;
 $color-blue: #3498db;
-$color-asphalt: desaturate(#34495e, 5%);
-$color-midnight: desaturate(#2c3e50, 5%);
-$color-dark: darken($color-midnight, 10%);
+$color-asphalt: color.adjust(#34495e, $saturation: -5%);
+$color-midnight: color.adjust(#2c3e50, $saturation: -5%);
+$color-dark: color.adjust($color-midnight, $lightness: -10%);
 $color-cloud: #ecf0f1;
 $color-silver: #b6bcc0;
 $color-concrete: #95a5a6;
 $color-carrot: #e67e22;
-$color-text: lighten($color-black, 25%);
+$color-text: color.adjust($color-black, $lightness: 25%);

@@ -10,6 +10,7 @@ tags:
 categories:
   - Uncategorized
 id: 180
+image: ../../assets/images/hero/flux.jpg
 ---
 
 **If you are into front-end development, you've probably heard or read the term 'Flux'. What does it mean and why should you care?**
@@ -24,7 +25,7 @@ Flux was presented by Facebook in combination with [React](http://facebook.githu
 
 > The reason why React works so well with Flux is because it also follows the unidirectional data flow principle. Frameworks like AngularJS use concepts like two way databinding which violate this principle.
 
-![Flux architecture](/2015/08/22/flux-what-and-why/flux-architecture.png)
+![Flux architecture](../../assets/images/content/flux-architecture.png)
 
 ## Actions
 

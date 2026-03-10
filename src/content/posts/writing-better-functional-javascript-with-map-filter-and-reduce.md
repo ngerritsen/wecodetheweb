@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 1
+image: ../../assets/images/hero/map-filter-reduce.jpg
 ---
 
 __There is a clear trend going on in the Javascript world. We prefer a functional programming style in our Javascript applications. Let's see how we can leverage Javascript's three most powerful built in functional array methods.__

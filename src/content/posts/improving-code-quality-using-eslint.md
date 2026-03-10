@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 180
+image: ../../assets/images/hero/eslint.jpg
 ---
 
 **ESLint the Javascript linter of choice today. But it can do more than just checking semicolons and quotes. In this article we'll go over how to configure ESLint to really help improve your code.**

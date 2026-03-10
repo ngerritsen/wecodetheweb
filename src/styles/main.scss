@@ -1,9 +1,16 @@
-@import 'variables/colors';
-@import 'variables/fonts';
-@import 'variables/measures';
-@import 'variables/mixins';
+@use 'sass:color';
+@use 'variables' as *;
 
-@import 'code';
-@import 'layout';
-@import 'footer';
-@import 'post-nav';
+@use 'fonts';
+@use 'global';
+@use 'typography';
+@use 'code';
+@use 'layout';
+@use 'header';
+@use 'footer';
+@use 'post';
+@use 'post-block';
+@use 'post-list';
+@use 'post-nav';
+@use 'meta-data';
+@use 'tags';

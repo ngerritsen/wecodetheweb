@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { getDateParts } from '../utils/dateFormat';
 import MetaData from './MetaData.astro';
 import TagList from './TagList.astro';
+import { renderExcerpt } from '../utils/excerptRenderer';
 
 export interface Props {
   post: CollectionEntry<'posts'>;
@@ -15,15 +17,29 @@ const { post, headline = false, subheadline = false } = Astro.props;
 // Build post URL
 const { year, month, day } = getDateParts(post.data.date);
 const postUrl = `/${year}/${month}/${day}/${post.slug}/`;
-const imgUrl = `/posts/${post.slug}/main.jpg`;
 
-// Extract excerpt
-const excerptContent = post.body.split('<!-- more -->')[0] || post.body.substring(0, 200);
+// Extract excerpt - look for <!-- more --> marker
+const excerptMarkdown = post.body.split('<!-- more -->')[0].trim() || post.body.substring(0, 200);
+
+// Render excerpt using shared processor
+const excerptHtml = await renderExcerpt(excerptMarkdown);
 ---
 
 <article class={`post-list__item${headline ? ' alt-headline' : ''}${subheadline ? ' alt-sub-headline' : ''}`}>
   <a href={postUrl} title={`Read: ${post.data.title}`} class="post-list__item-image-link">
-    <div class="post-list__item-image" style={`background-image: url('${imgUrl}')`}></div>
+    <div class="post-list__item-image">
+      <Image
+        src={post.data.image}
+        alt=""
+        width={800}
+        height={600}
+        format="webp"
+        quality={75}
+        class="post-list__item-image__img"
+        loading="lazy"
+        aria-hidden="true"
+      />
+    </div>
   </a>
 
   <div class="post-list__item-content">
@@ -33,7 +49,7 @@ const excerptContent = post.body.split('<!-- more -->')[0] || post.body.substrin
       <a href={postUrl}>{post.data.title}</a>
     </h2>
 
-    <div class="post-list__item-excerpt" set:html={excerptContent} />
+    <div class="post-list__item-excerpt" set:html={excerptHtml} />
 
     <TagList tags={post.data.tags} />
   </div>

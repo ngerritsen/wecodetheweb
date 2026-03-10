@@ -9,6 +9,7 @@ tags:
 categories:
   - Uncategorized
 id: 217
+image: ../../assets/images/hero/ftp-deployment.jpg
 ---
 
 **Continuous integration is an important subject, I cannot think of a development world without it. There are a lot of options for CI, but [Travis](https://travis-ci.org/) is a nice and simple one. For personal projects it's free with unlimited repo's, perfect! However, it requires you to code your own build script. I had some trouble figuring out a good way to do FTP deployments. So, how do you upload files to FTP servers with Travis?**

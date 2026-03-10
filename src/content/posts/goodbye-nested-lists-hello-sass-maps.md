@@ -6,6 +6,7 @@ tags:
 categories:
   - Uncategorized
 id: 64
+image: ../../assets/images/hero/sass-maps.jpg
 ---
 
 **SASS lists are great, and with multidimensional lists you can get a key-value-like experience, but not completely..**

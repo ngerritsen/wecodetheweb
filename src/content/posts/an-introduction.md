@@ -6,6 +6,7 @@ tags:
 categories:
   - Uncategorized
 id: 1
+image: ../../assets/images/hero/introduction.jpg
 ---
 
 Hi, my name is Niels. I am a front-end/web developer from the Netherlands. I opened this blog to share my experiences about front-end development with the world! The main topics will be Javascript, React, Angular, Sass, Gulp and everything involving front-end development.

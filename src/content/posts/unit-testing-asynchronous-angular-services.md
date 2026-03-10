@@ -10,6 +10,7 @@ tags:
 categories:
   - Uncategorized
 id: 171
+image: ../../assets/images/hero/angular-async-testing.jpg
 ---
 
 **Angular is built to be testable. But when I tried to test an Angular service that had a dependency on another service ánd communicated asynchronously with it, I faced a bit of a challenge.**

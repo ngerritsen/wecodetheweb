@@ -9,6 +9,7 @@ tags:
 categories:
   - Uncategorized
 id: 40
+image: ../../assets/images/hero/icon-fonts.jpg
 ---
 
 Sometimes you want to display an icon in your website somewhere, but you do not want to touch the HTML. For instance if you have an auto-generated link in your CMS and you want to prefix it with an icon. This is actually very easy to do, because that is exactly what icon font vendors like [Bootstrap Glyphicons](http://getbootstrap.com/components/) and [FontAwesome](http://fortawesome.github.io/Font-Awesome/) already do!
@@ -81,7 +82,7 @@ We have now created a usable icon insertion method in our own webpage. Now rend
 <a href="http://some-external-link.com" class="web-link">Some external link</a>
 ```
 
-![External icon link](/2015/05/25/using-icon-fonts-with-sass/result.png)
+![External icon link](../../assets/images/content/result.png)
 
 FontAwesome already provides you with a [FontAwesome SASS project](https://github.com/FortAwesome/font-awesome-sass), containing all the icons and mixins like we just created. But we have now learned how this works and can create our own mixins, suiting our needs and using other icon sets. For instance Bootstrap Glyphicons will work almost the same except for other character codes and using the _'Glyphicon Halflings'_ font instead of _'FontAwesome'_.
 

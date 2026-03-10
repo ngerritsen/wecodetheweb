@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 9
+image: ../../assets/images/hero/compass.jpg
 ---
 
 **For a long time I have been a dedicated user of the SASS+Compass stack. It is great not having to provide workarounds and fixes for each browser in your CSS. Compass mixins saved me a lot of trouble. So why ask the question in this title?**

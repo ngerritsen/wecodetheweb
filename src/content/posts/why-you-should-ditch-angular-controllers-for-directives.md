@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 155
+image: ../../assets/images/hero/angular-directives.jpg
 ---
 
 **[AngularJS ](https://angularjs.org/)has been around for a while. Although [AngularJS 2.0](https://angular.io/) is going to have a completely different api, it's current api is kinda settled and mature. But it's starting to get old. 6 years is quite a lot for a front-end framework and the competition is moving fast. But still AngularJS is a solid and complete framework with a big community behind it. Controllers have become the staple component of an Angular application, but should they be?**

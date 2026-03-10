@@ -9,6 +9,7 @@ tags:
 categories:
   - Uncategorized
 id: 22
+image: ../../assets/images/hero/react-es6.jpg
 ---
 
 **ECMAScript 6 is great! It gives us Javascript developers a long time longed for set of core functionalities like classes, imports and more. Browsers do not support [most of the features yet,](http://kangax.github.io/compat-table/es6/) but we can use transpilers to be able to use ES6.**

@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import PostNav from '../../components/PostNav.astro';
+import { SITE } from '../../config';
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = await getCollection('posts');
+
+  // Sort posts by date (newest first)
+  const sortedPosts = allPosts.sort((a, b) =>
+    b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+  return paginate(sortedPosts, { pageSize: SITE.postsPerPage });
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout>
+  <PostList posts={page.data} currentPage={page.currentPage} />
+  <PostNav
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+  />
+</BaseLayout>

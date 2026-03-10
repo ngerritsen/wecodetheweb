@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 302
+image: ../../assets/images/hero/ava-testing.jpg
 ---
 
 **There are a lot of test runners out there. [Mocha](http://mochajs.org/), [Jasmine](http://jasmine.github.io/), [tape](https://github.com/substack/tape) and more. I hear you thinking: "another framework?". But Ava is a worthy alternative for the existing solutions.**

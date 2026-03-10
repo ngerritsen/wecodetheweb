@@ -10,6 +10,7 @@ tags:
 categories:
   - Uncategorized
 id: 297
+image: ../../assets/images/hero/radium-tinycolor.jpg
 ---
 
 **CSS is an old standard. It's pretty basic and there are currently a lot of alternatives for styling web applications. Of course we have the pre-processors like [LESS](http://lesscss.org/) and [SASS](http://sass-lang.com/). [CSS Modules](https://github.com/css-modules/css-modules) is also a nice one which I'll probably cover in another post. In the end they all output plain CSS again, but ah well, what other options do you have? What about inline styles? In Javascript.. WHAT?!**

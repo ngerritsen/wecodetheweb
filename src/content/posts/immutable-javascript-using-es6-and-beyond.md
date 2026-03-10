@@ -9,10 +9,11 @@ tags:
 categories:
   - Uncategorized
 id: 301
+image: ../../assets/images/hero/immutability.jpg
 ---
-__Writing immutable Javascript code is a good practice. There are some awesome libraries around like [Immutable.js](https://facebook.github.io/immutable-js/) to help you with this. But could we survive with just vanilla, next generation Javascript?__
+**Writing immutable Javascript code is a good practice. There are some awesome libraries around like [Immutable.js](https://facebook.github.io/immutable-js/) to help you with this. But could we survive with just vanilla, next generation Javascript?**
 
-<!--more-->
+<!-- more -->
 
 Short answer, yes. ES6 and ES.Next contain some awesome features that can help you achieve immutable behaviour without any hassle. In this article I will show you how to use them, it's fun!
 
@@ -39,7 +40,7 @@ console.log(person) // { name: 'John', age: 30 }
 
 Can you see the problem here? When we change `newObj`, we also automatically change the old `obj` variable. This is because they refer to the same object. In most cases this is unwanted behaviour and _bad_ practice. Let's see how we can solve this.
 
-![Immutablity is bad for you](immutability.png)
+![Immutablity is bad for you](../../assets/images/content/immutability.png)
 
 ## Going immutable
 

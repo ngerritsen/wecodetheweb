@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 52
+image: ../../assets/images/hero/destructuring.jpg
 ---
 
 **Destructuring must be my favorite feature of ECMAScript 6\. I don't exactly know why, I guess I just like the simplicity. It makes your code more clean and declarative.**

@@ -1,3 +1,6 @@
+@use 'sass:color';
+@use 'variables' as *;
+
 $header-height: 9rem;
 
 .header {
@@ -28,11 +31,11 @@ $header-height: 9rem;
   }
 
   &:hover {
-    color: lighten($color-midnight, 5%);
+    color: color.adjust($color-midnight, $lightness: 5%);
   }
 
   .header.alt-on-post & {
-    color: transparentize($color-white, 0.1);
-    text-shadow: 0 0 6px transparentize($color-midnight, 0.8);
+    color: color.adjust($color-white, $alpha: -0.1);
+    text-shadow: 0 0 6px color.adjust($color-midnight, $alpha: -0.8);
   }
 }

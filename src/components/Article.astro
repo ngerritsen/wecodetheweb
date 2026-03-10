@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { getRelatedPosts } from '../utils/relatedPosts';
 import { getDateParts } from '../utils/dateFormat';
@@ -17,7 +18,6 @@ const { Content } = await post.render();
 
 const relatedPosts = getRelatedPosts(post, allPosts);
 const postUrl = Astro.site + post.slug;
-const imagePath = `/posts/${post.slug}/main.jpg`;
 
 // Get date parts for URL construction
 const { year, month, day } = getDateParts(post.data.date);
@@ -26,7 +26,18 @@ const fullPostUrl = `${Astro.site}${year}/${month}/${day}/${post.slug}/`;
 
 <main>
   <article class="post">
-    <section class="post__heading" style={`background-image: url('${imagePath}')`}>
+    <section class="post__heading">
+      <Image
+        src={post.data.image}
+        alt=""
+        width={1600}
+        height={800}
+        format="webp"
+        quality={80}
+        class="post__heading-image"
+        loading="eager"
+        aria-hidden="true"
+      />
       <div class="post__heading-overlay"></div>
       <div class="container">
         <div class="post__heading-content">
@@ -53,7 +64,6 @@ const fullPostUrl = `${Astro.site}${year}/${month}/${day}/${post.slug}/`;
             {relatedPosts.map(relatedPost => {
               const relatedDateParts = getDateParts(relatedPost.data.date);
               const relatedUrl = `/${relatedDateParts.year}/${relatedDateParts.month}/${relatedDateParts.day}/${relatedPost.slug}/`;
-              const relatedImagePath = `/posts/${relatedPost.slug}/main.jpg`;
 
               // Get excerpt from content
               const excerptContent = relatedPost.body.split('<!-- more -->')[0] || relatedPost.body.substring(0, 200);
@@ -63,7 +73,7 @@ const fullPostUrl = `${Astro.site}${year}/${month}/${day}/${post.slug}/`;
                   title={relatedPost.data.title}
                   excerpt={excerptContent}
                   slug={relatedPost.slug}
-                  imagePath={relatedImagePath}
+                  image={relatedPost.data.image}
                   url={relatedUrl}
                 />
               );

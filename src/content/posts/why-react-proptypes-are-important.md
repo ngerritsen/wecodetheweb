@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 106
+image: ../../assets/images/hero/proptypes.jpg
 ---
 
 _Props_ are the mechanism _React_ uses to let components communicate with each other. A parent component can pass it's child(ren) named prop values, which the child can then use in its internal logic. <!-- more --> It looks something like this:

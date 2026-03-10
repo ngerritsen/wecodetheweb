@@ -1,11 +1,14 @@
+@use 'sass:color';
+@use 'variables' as *;
+
 .meta-data {
-  color: darken($color-silver, 5%);
+  color: color.adjust($color-silver, $lightness: -5%);
   font-family: $heading-font;
   margin-bottom: 4rem;
 }
 
 .meta-data__avatar {
-  border: 2px solid darken($color-white, 5%);
+  border: 2px solid color.adjust($color-white, $lightness: -5%);
   border-radius: 50%;
   display: inline-block;
   margin-right: 0.7rem;
@@ -17,13 +20,13 @@
 
 .meta-data__link,
 .meta-data__link:visited {
-  color: darken($color-silver, 5%);
+  color: color.adjust($color-silver, $lightness: -5%);
   padding: 0 4px;
 
   &:hover,
   &:active,
   &:focus {
-    color: lighten($color-midnight, 25%);
+    color: color.adjust($color-midnight, $lightness: 25%);
   }
 }
 

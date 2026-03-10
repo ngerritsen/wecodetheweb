@@ -1,11 +1,18 @@
+# System files
 .DS_Store
 Thumbs.db
-db.json
+
+# Logs
 *.log
+
+# Dependencies
 node_modules/
-public/
-.deploy*/
-themes/wecodetheweb/node_modules/
-themes/wecodetheweb/source/css
-themes/wecodetheweb/source/js/bundle.js
-.vscode
+package-lock.json
+
+# Build output
+dist/
+.astro/
+
+# Local settings
+.claude/
+.npmrc

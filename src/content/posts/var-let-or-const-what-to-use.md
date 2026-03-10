@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 69
+image: ../../assets/images/hero/var-let-const.jpg
 ---
 
 **The Javascript world has grown, a lot. Instead of a simple scripting language, it is now used as a full blown programming language for the web. Not to forget it's server side capabilities with NodeJS. ECMAScript 6 brings some features to make Javascript a more 'mature' language. A good example is the new _let_ and _const_ variable types.**

@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 123
+image: ../../assets/images/hero/hayaku.jpg
 ---
 
 **Lately a good friend of mine showed me this plugin for Sublime Text called Hayaku. I had never heard of it so I asked him what it was. It's like Emmet for CSS. Hey, I know Emmet, it makes writing HTML and CSS easier, so what's this about?**

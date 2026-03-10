@@ -7,6 +7,7 @@ tags:
 categories:
   - Uncategorized
 id: 173
+image: ../../assets/images/hero/proxies.jpg
 ---
 
 **Proxies are one of the lesser known functionalities in EcmaScript 6\. This is for a reason, they will probably not become your staple exercise in coding Javascript applications. But they are quite cool!**

@@ -10,6 +10,7 @@ tags:
 categories:
   - Uncategorized
 id: 263
+image: ../../assets/images/hero/redux.jpg
 ---
 
 **The [Flux](https://facebook.github.io/flux/) application design pattern is still going strong and gaining popularity. There are countless libraries around, helping you implement Flux. But lately, one has been standing out.** <!-- more -->  
@@ -86,7 +87,7 @@ store.getState() // => 1000000
 
 So to recap. There are three main concepts in redux. The store, actions and reducers. Actions trigger state changes, the store holds the state and reducers calculate the next state. Here is a simplified scheme of how the redux cycle works:
 
-![Redux Cycle](/2015/09/29/functionally-managing-state-with-redux/redux-cycle.png)
+![Redux Cycle](../../assets/images/content/redux-cycle.png)
 
 > Actions are triggered by either views, other actions or events/callbacks from, for instance, the server.
 

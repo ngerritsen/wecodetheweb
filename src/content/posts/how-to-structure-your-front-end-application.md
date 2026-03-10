@@ -6,6 +6,7 @@ tags:
 categories:
   - Uncategorized
 id: 84
+image: ../../assets/images/hero/app-structure.jpg
 ---
 
 **I have always been very picky about a good folder structure. I enjoy working in a neatly structured project. How do we go about this in a front-end application?**

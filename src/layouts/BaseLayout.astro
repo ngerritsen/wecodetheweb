@@ -25,6 +25,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1.0, user-scalable=no" />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
 
@@ -59,9 +62,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <Header isPost={isPost} />
     <slot />
     <Footer />
-
-    <!-- Clicky Analytics -->
-    <script async src="//static.getclicky.com/101354173.js"></script>
-    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101354173ns.gif" /></p></noscript>
   </body>
 </html>

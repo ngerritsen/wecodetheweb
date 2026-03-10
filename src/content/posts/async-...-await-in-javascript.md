@@ -8,6 +8,7 @@ tags:
 categories:
   - Uncategorized
 id: 53
+image: ../../assets/images/hero/async-await.jpg
 ---
 
 __We've all been through callback hell, maybe we use Promises and Observables to get some relief. Will async await liberate us once and for all?__
